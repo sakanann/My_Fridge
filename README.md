@@ -18,6 +18,7 @@ README
 
 ``` bash
 $ git clone git@github.com:sakanann/My_Fridge.git
+$ cd My_Fridge
 $ bundle install
 $ yarn install
 $ rails db:create && rails db:migrate
