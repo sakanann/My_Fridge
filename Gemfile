@@ -65,3 +65,6 @@ gem 'devise-i18n'
 
 gem 'rails_admin', '~> 3.0'
 #管理者権限Gem
+
+gem 'cancancan'
+#アクセス制限のGem
