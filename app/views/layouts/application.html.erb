@@ -12,7 +12,7 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to "食材登録", food_stocks_path %>
+      <%= link_to "冷蔵庫 食材一覧", food_stocks_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
