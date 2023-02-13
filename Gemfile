@@ -42,7 +42,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   gem 'letter_opener_web'
 end
 
@@ -60,3 +60,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'rexml'
 #Ruby3系でdeviseを使用するにはrexmlもいれる
+gem 'devise-i18n'
+#国際化の為 導入
