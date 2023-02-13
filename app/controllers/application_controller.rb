@@ -5,5 +5,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
-  #nameカラムログイン時追加の都合上、記述　ほかsession newにも追記アリ　入力フォームname
+  #nameカラムログイン時追加の都合上、記述 ほかsession newにも追記アリ 入力フォームname
 end
