@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  use_up_on: 2023-02-13
+  price: 1
+  consumption: false
+  notes: MyString
+
+two:
+  use_up_on: 2023-02-13
+  price: 1
+  consumption: false
+  notes: MyString
