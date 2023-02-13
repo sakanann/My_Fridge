@@ -62,3 +62,6 @@ gem 'rexml'
 #Ruby3系でdeviseを使用するにはrexmlもいれる
 gem 'devise-i18n'
 #国際化の為 導入
+
+gem 'rails_admin', '~> 3.0'
+#管理者権限Gem
