@@ -1,6 +1,6 @@
 class FoodStocksController < ApplicationController
   before_action :set_food_stock, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /food_stocks or /food_stocks.json
   def index
     @food_stocks = FoodStock.all
@@ -22,6 +22,7 @@ class FoodStocksController < ApplicationController
   # POST /food_stocks or /food_stocks.json
   def create
     @food_stock = FoodStock.new(food_stock_params)
+    @food_stock = current_user.food_stocks.build(food_stock_params)
 
     respond_to do |format|
       if @food_stock.save
