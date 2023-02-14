@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Use up on:</strong>
+  <%= @food_stock.use_up_on %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @food_stock.price %>
+</p>
+
+<p>
+  <strong>Consumption:</strong>
+  <%= @food_stock.consumption %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @food_stock.notes %>
+</p>
+
+<%= link_to 'Edit', edit_food_stock_path(@food_stock) %> |
+<%= link_to 'Back', food_stocks_path %>
