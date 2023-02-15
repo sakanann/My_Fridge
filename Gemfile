@@ -69,3 +69,5 @@ gem 'rails_admin', '~> 3.0'
 
 gem 'cancancan'
 #アクセス制限のGem
+gem "simple_calendar", "~> 2.4"
+#Ruby on Rails アプリのカレンダー
