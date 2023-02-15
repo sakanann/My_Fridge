@@ -14,6 +14,7 @@ class FoodStocksController < ApplicationController
   # GET /food_stocks/new
   def new
     @food_stock = FoodStock.new
+    Food.where(food_category_id: 2)
   end
 
   # GET /food_stocks/1/edit
