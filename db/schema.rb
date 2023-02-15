@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2023_02_15_024041) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.bigint "foods_id"
-    t.index ["foods_id"], name: "index_food_stocks_on_foods_id"
+    t.bigint "food_id"
+    t.index ["food_id"], name: "index_food_stocks_on_food_id"
     t.index ["user_id"], name: "index_food_stocks_on_user_id"
   end
 
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2023_02_15_024041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "food_stocks", "foods", column: "foods_id"
+  add_foreign_key "food_stocks", "foods"
   add_foreign_key "food_stocks", "users"
   add_foreign_key "foods", "food_categories"
 end

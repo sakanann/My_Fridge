@@ -14,8 +14,9 @@
   <tbody>
     <% @food_stocks.each do |food_stock| %>
       <tr>
+
         <td><%= food_stock.use_up_on %></td>
-        <td><%= food_stock.price %></td>
+        <td><%= "#{food_stock.price}円 "%></td>
         <td><%= food_stock.consumption %></td>
         <td><%= food_stock.notes %></td>
         <td><%= link_to 'Show', food_stock %></td>
@@ -25,6 +26,61 @@
     <% end %>
   </tbody>
 </table>
+
+<%= form_with(method: :get, url: food_stocks_path) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '絞り込む'%>
+  </div>
+<% end %>
+
+
+<%= form_with(model: @food_stock) do |form| %>
+  <% if @food_stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
+
+      <ul>
+        <% @food_stock.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.collection_select :food_id, @food_select_lists, :id, :name %>
+
+  <div class="field">
+    <%= form.label :use_up_on %>
+    <%= form.date_select :use_up_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :consumption %>
+    <%= form.check_box :consumption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 
 <br>
 
