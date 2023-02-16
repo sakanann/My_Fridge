@@ -86,5 +86,17 @@
 
 
 <br>
+<!--以下追記　カレンダー実装の為-->
+<div class="col-md-8">
+<%= month_calendar events: @food_stocks do |date, food_stocks| %>
+  <%= date.day %>
+
+  <% food_stocks.each do |food_stock| %>
+    <div>
+      <%= link_to food_stock.food.name, food_stocks %>
+    </div>
+  <% end %>
+<% end %>
+</div>
 
 <%= link_to 'New Food Stock', new_food_stock_path %>
