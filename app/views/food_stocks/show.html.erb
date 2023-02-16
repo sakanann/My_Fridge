@@ -1,22 +1,31 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Use up on:</strong>
+  <strong>食品カテゴリ:</strong>
+  <%= @food_stock.food.food_category.name %>
+</p>
+
+<p>
+  <strong>食品名:</strong>
+  <%= @food_stock.food.name %>
+</p>
+
+<p>
+  <strong>賞味期限:</strong>
   <%= @food_stock.use_up_on %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>価格:</strong>
   <%= @food_stock.price %>
 </p>
 
 <p>
-  <strong>Consumption:</strong>
+  <strong>消費の有無:</strong>
   <%= @food_stock.consumption %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong>備考欄:</strong>
   <%= @food_stock.notes %>
 </p>
 

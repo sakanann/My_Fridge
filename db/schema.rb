@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_14_021200) do
+ActiveRecord::Schema.define(version: 2023_02_15_024041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "food_categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "food_stocks", force: :cascade do |t|
     t.date "use_up_on"
@@ -23,7 +29,17 @@ ActiveRecord::Schema.define(version: 2023_02_14_021200) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "food_id"
+    t.index ["food_id"], name: "index_food_stocks_on_food_id"
     t.index ["user_id"], name: "index_food_stocks_on_user_id"
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "food_category_id"
+    t.index ["food_category_id"], name: "index_foods_on_food_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +56,7 @@ ActiveRecord::Schema.define(version: 2023_02_14_021200) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_stocks", "foods"
   add_foreign_key "food_stocks", "users"
+  add_foreign_key "foods", "food_categories"
 end
