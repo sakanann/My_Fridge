@@ -35,7 +35,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name %>
+    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name, { include_blank: "選択してください"} %>
   </div>
 
   <div class="actions">
@@ -57,7 +57,7 @@
     </div>
   <% end %>
 
-  <%= form.collection_select :food_id, @food_select_lists, :id, :name %>
+  <%= form.collection_select :food_id, @food_select_lists, :id, :name, { include_blank: "選択してください"} %>
 
   <div class="field">
     <%= form.label :use_up_on %>
@@ -86,7 +86,7 @@
 
 
 <br>
-<!--以下追記　カレンダー実装の為-->
+<!--以下追記 カレンダー実装の為-->
 <div class="col-md-8">
 <%= month_calendar events: @food_stocks do |date, food_stocks| %>
   <%= date.day %>

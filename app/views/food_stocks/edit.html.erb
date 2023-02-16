@@ -1,6 +1,43 @@
 <h1>Editing Food Stock</h1>
 
-<%= render 'form', food_stock: @food_stock %>
+<%= form_with(model: @food_stock) do |form| %>
+  <% if @food_stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
 
-<%= link_to 'Show', @food_stock %> |
+      <ul>
+        <% @food_stock.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :use_up_on %>
+    <%= form.date_field :use_up_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :consumption %>
+    <%= form.check_box :consumption %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Back', food_stocks_path %>

@@ -11,9 +11,24 @@
     </div>
   <% end %>
 
+
+<%= form_with(method: :get, url: food_stocks_path) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '絞り込む'%>
+  </div>
+<% end %>
+
+
   <div class="field">
     <%= form.label :use_up_on %>
-    <%= form.date_select :use_up_on %>
+    <%= form.date_field :use_up_on %>
   </div>
 
   <div class="field">
