@@ -1,7 +1,7 @@
 class FoodStocksController < ApplicationController
   before_action :set_food_stock, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-
+  before_action :set_beginning_of_week
 
   def index
     # @food_stocks = FoodStock.all
@@ -52,12 +52,18 @@ class FoodStocksController < ApplicationController
   end
 
   private
-    def set_food_stock
-      @food_stock = FoodStock.find(params[:id])
-    end
+#日曜日を始まり(一番左) gem simple_calendar
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
+  end
 
 
-    def food_stock_params
-      params.require(:food_stock).permit(:use_up_on, :price, :consumption, :notes, :food_id)
-    end
+  def set_food_stock
+    @food_stock = FoodStock.find(params[:id])
+  end
+
+
+  def food_stock_params
+    params.require(:food_stock).permit(:use_up_on, :price, :consumption, :notes, :food_id)
+  end
 end

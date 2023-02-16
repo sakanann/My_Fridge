@@ -1,3 +1,9 @@
 // Place all the styles related to the FoodStocks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.day.wday-0{
+  color: red;
+}
+.day.wday-6{
+  color: blue;
+}
