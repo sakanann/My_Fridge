@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :food_stocks
   root 'food_stocks#index'
   resources :youtube
-  get "search" => "youtube#index"
+  # get "search" => "youtube#index"
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'

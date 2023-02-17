@@ -1,3 +1,5 @@
+<h2>YouTube レシピ検索ページ</h2>
+
 <% if @youtube_data.present? %>
   <% @youtube_data.items.each do |item| %>
     <div>
@@ -7,11 +9,11 @@
     </div>
   <% end %>
 <% else %>
-  <p>No videos found</p>
+  <p>食材キーワードを入力してください！</p>
 <% end %>
 
 <%= form_tag(youtube_index_path, method: :get) do %>
-  <%= label_tag(:search, "Search for:") %>
+  <%= label_tag(:search, "検索フォーム") %>
   <%= text_field_tag(:search) %>
   <%= submit_tag("Search") %>
 <% end %>

@@ -77,3 +77,6 @@ gem 'dotenv-rails'
 gem 'google-apis-drive_v3',  require: 'google/apis/youtube_v3'
 #youtube apiのためのもの
 gem 'google-api-client', '~> 0.11'
+
+gem 'ransack'
+#検索絹・並び替えソート機能
