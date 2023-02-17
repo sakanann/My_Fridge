@@ -71,3 +71,9 @@ gem 'cancancan'
 #アクセス制限のGem
 gem "simple_calendar", "~> 2.4"
 #Ruby on Rails アプリのカレンダー
+
+gem 'dotenv-rails'
+#環境変数を扱うために必要 .env
+gem 'google-apis-drive_v3',  require: 'google/apis/youtube_v3'
+#youtube apiのためのもの
+gem 'google-api-client', '~> 0.11'

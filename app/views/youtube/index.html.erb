@@ -1,0 +1,17 @@
+<% if @youtube_data.present? %>
+  <% @youtube_data.items.each do |item| %>
+    <div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allowfullscreen></iframe>
+      <h3><%= item.snippet.title %></h3>
+      <p><%= item.snippet.description %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No videos found</p>
+<% end %>
+
+<%= form_tag(youtube_index_path, method: :get) do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>

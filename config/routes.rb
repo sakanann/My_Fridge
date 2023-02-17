@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :food_stocks
   root 'food_stocks#index'
+  resources :youtube
+  get "search" => "youtube#index"
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
