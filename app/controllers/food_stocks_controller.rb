@@ -9,7 +9,7 @@ class FoodStocksController < ApplicationController
     @food_select_lists = Food.where(food_category_id: params[:food_category_id])
 
     @q = FoodStock.ransack(params[:q])
-    @food_stocks = @q.result(distinct: true).includes(:food).order(use_up_on: :asc)
+    @food_stocks = @q.result
   end
 
   def show
