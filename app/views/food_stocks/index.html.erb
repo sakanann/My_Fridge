@@ -86,10 +86,10 @@
   <thead>
     <tr>
       <th>食品カテゴリ</th>
-      <th>食品名</th>
-      <th>賞味期限</th>
-      <th>価格</th>
-      <th>消費の有無</th>
+      <th><%= sort_link(@q, :food_name, "食品名") %></th>
+      <th><%= sort_link(@q, :use_up_on, "賞味期限") %></th>
+      <th><%= sort_link(@q, :price, "価格") %></th>
+      <th><%= sort_link(@q, :consumption, "消費の有無") %></th>
       <th>備考欄</th>
       <th colspan="3"></th>
     </tr>
