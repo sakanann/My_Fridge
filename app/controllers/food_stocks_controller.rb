@@ -10,6 +10,9 @@ class FoodStocksController < ApplicationController
 
     @q = FoodStock.ransack(params[:q])
     @food_stocks = @q.result
+
+ #賞味期限から数えて、残り3日の食材は赤く表記される
+    @three_days_before = 3.days.from_now.to_date
   end
 
   def show

@@ -118,13 +118,19 @@
 <br>
 <!--以下追記 カレンダー実装の為-->
 <div class="col-md-8">
-<%= month_calendar events: @food_stocks do |date, food_stocks| %>
-  <%= date.day %>
+  <%= month_calendar events: @food_stocks do |date, food_stocks| %>
+    <%= date.day %>
 
-  <% food_stocks.each do |food_stock| %>
-    <div>
-      <%= link_to food_stock.food.name, food_stock %>
-    </div>
+    <% food_stocks.each do |food_stock| %>
+      <% if food_stock.use_up_on <= @three_days_before %><!--賞味期限から数えて、残り3日の食材は赤く表記される 2/18実装--->
+        <div>
+          <%= link_to food_stock.food.name, food_stock, style: "color: red" %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to food_stock.food.name, food_stock %>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
 </div>
