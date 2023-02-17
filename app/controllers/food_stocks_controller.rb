@@ -4,10 +4,12 @@ class FoodStocksController < ApplicationController
   before_action :set_beginning_of_week
 
   def index
-    # @food_stocks = FoodStock.all
     @food_stock = FoodStock.new
     @food_stocks = current_user.food_stocks
     @food_select_lists = Food.where(food_category_id: params[:food_category_id])
+
+    @q = FoodStock.ransack(params[:q])
+    @food_stocks = @q.result(distinct: true).includes(:food).order(use_up_on: :asc)
   end
 
   def show

@@ -1,3 +1,12 @@
+<!--検索ransack--->
+<%= search_form_for @q do |f| %>
+  <%= f.text_field :food_name_cont, placeholder: 'Search Food' %>
+  <%= f.submit 'Search' %>
+<% end %>
+
+
+<br>
+
 <%= form_with(method: :get, url: food_stocks_path) do |form| %>
 
 
