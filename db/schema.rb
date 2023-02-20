@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2023_02_20_085522) do
   create_table "food_stocks", force: :cascade do |t|
     t.date "use_up_on"
     t.integer "price"
-    t.boolean "consumption", null: false
+    t.boolean "consumption", default: false, null: false
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
