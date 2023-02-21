@@ -1,4 +1,4 @@
-<h1>Editing Food Stock</h1>
+<h2>食品データの編集</h2>
 
 <%= form_with(model: @food_stock) do |form| %>
   <% if @food_stock.errors.any? %>
@@ -16,22 +16,22 @@
 
 
   <div class="field">
-    <%= form.label :use_up_on %>
+    <%= form.label :賞味期限 %>
     <%= form.date_field :use_up_on %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :価格 %>
     <%= form.number_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :consumption %>
+    <%= form.label :消費の有無 %>
     <%= form.check_box :consumption %>
   </div>
 
   <div class="field">
-    <%= form.label :notes %>
+    <%= form.label :備考欄 %>
     <%= form.text_field :notes %>
   </div>
 
@@ -40,4 +40,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Back', food_stocks_path %>
+<%= link_to '冷蔵庫に戻る', food_stocks_path %>

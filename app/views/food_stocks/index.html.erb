@@ -3,17 +3,17 @@
 
 <div class="field">
 <%= f.label :food_name_cont, '食品名' %>
-<%= f.search_field :food_name_cont %>
+<%= f.search_field :food_name_cont, placeholder: '食品名', id: 'food_name-form'  %>
 </div>
 
 <div class="field">
-<%= f.label :use_up_on_gteq, '期限がこれ以降' %>
+<%= f.label :use_up_on_gteq, '賞味期限がこれ以降' %>
 <%= f.date_field :use_up_on_gteq %>
 </div>
 
 <div class="field">
 <%= f.label :price_lteq, '入力価格以下で検索' %>
-<%= f.number_field :price_lteq %>
+<%= f.number_field :price_lteq, placeholder: '価格', id: 'price-form'  %>
 </div>
 
 <div class="field">
@@ -22,12 +22,13 @@
 </div>
 
 <br>
+<div class="search-actions">
   <%= f.submit '検索' %>
+</div>
 <% end %>
 
 
-
-
+<!--------食品の登録----------->
 <br>
 <%= form_with(method: :get, url: food_stocks_path) do |form| %>
 
@@ -64,7 +65,7 @@
 
   <div class="field">
     <%= form.label :価格 %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, placeholder: '価格', id: 'price-form' %>
   </div>
 
   <div class="field">
@@ -74,14 +75,15 @@
 
   <div class="field">
     <%= form.label :備考欄 %>
-    <%= form.text_field :notes %>
+    <%= form.text_field :notes, placeholder: 'メモがあれば入力', id: 'notes-form' %>
   </div>
 
-  <div class="actions">
+  <div class="submit-actions">
     <%= form.submit %>
   </div>
 <% end %>
 
+<!--------冷蔵庫食品一覧--------->
 <table>
   <thead>
     <tr>

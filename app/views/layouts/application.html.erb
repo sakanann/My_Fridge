@@ -30,9 +30,9 @@
     <% end %>
 
     <% if current_user.present? %>
-      <p>こんにちは、<%= current_user.name %>さん！</p>
+      <p><%= current_user.name %>さんでログインしています</p>
     <% else %>
-      <p>こんにちは、ゲストさん！</p>
+      <h3>こちらのWEBアプリへお越しいただき、有難うございます!</h3>
     <% end %>
 
     <% if notice %>
