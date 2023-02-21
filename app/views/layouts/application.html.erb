@@ -16,14 +16,13 @@
 
   <body>
     <header>
-      <div class="logo">
-        <%= link_to(root_path) do %>
-        <%= image_tag 'logo.png', size: '150x150' %>
-        <% end %>
-      </div>
-
       <nav>
         <ul>
+            <div class="logo">
+            <%= link_to(root_path) do %>
+            <%= image_tag 'logo.png', size: '150x150' %>
+            <% end %>
+            </div>
           <% if user_signed_in? %>
             <li><%= link_to "冷蔵庫 食品一覧", food_stocks_path %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -43,7 +42,7 @@
           <% if current_user.present? %>
             <li><p><%= current_user.name %>さんでログインしています</p></li>
           <% else %>
-            <h3>こちらのWEBアプリへお越しいただき、有難うございます!</h3>
+            <p>こちらのWEBアプリへお越しいただき、有難うございます!</p>
           <% end %>
 
           <% if notice %>
