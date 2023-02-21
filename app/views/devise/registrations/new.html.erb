@@ -4,25 +4,25 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.email_field :name, autofocus: true, autocomplete: "email" %>
+    <%= f.label :名前を入力してください %><br />
+    <%= f.email_field :name, autofocus: true, autocomplete: "name",  placeholder: 'user name', id: 'name-form' %>
   </div>
 
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :メールアドレスを入力してください %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: 'email', id: 'email-form' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワードを入力してください %>
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'password(6字以上)', id: 'password-form' %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, placeholder: 'password(確認用)', id: 'password-form' %>
   </div>
 
   <div class="actions">
