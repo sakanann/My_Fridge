@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#FoodCategory
 
+
+#foodcategories table　8件
 food_categories = [
                     {id: 1, name: "肉類"},
                     {id: 2, name: "野菜類"},
@@ -23,6 +24,7 @@ food_categories.each do |food_category|
   FoodCategory.find_or_create_by(food_category)
 end
 
+#foods table
 foods = [
           {name: "牛肉", food_category_id: 1},
           {name: "豚肉", food_category_id: 1},
@@ -40,8 +42,17 @@ foods = [
           {name: "カツオ", food_category_id: 3},
           {name: "イワシ", food_category_id: 3},
           {name: "りんご", food_category_id: 4},
+          {name: "ぶどう", food_category_id: 4},
+          {name: "みかん", food_category_id: 4},
           {name: "牛乳", food_category_id: 5},
+          {name: "チーズ", food_category_id: 5},
+          {name: "バター", food_category_id: 5},
+          {name: "ヨーグルト", food_category_id: 5},
           {name: "米", food_category_id: 6},
+          {name: "パン", food_category_id: 6},
+          {name: "うどん", food_category_id: 6},
+          {name: "蕎麦", food_category_id: 6},
+          {name: "ナン", food_category_id: 6},
           {name: "醤油", food_category_id: 7},
           {name: "たまご", food_category_id: 8}
 ]
