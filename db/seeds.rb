@@ -1,3 +1,12 @@
+#users table
+User.create!(name: "坂本 薫哉", email: "sakamoto@gmail.com", password:"sakamoto", admin: true)
+User.create!(name: "髙橋兄やん", email: "takahashi@gmail.com", password:"takahashi")
+User.create!(name: "おじょう", email: "adachi@gmail.com", password:"adachi")
+User.create!(name: "ハコ様", email: "hako@gmail.com", password:"hakohako")
+User.create!(name: "むつみたん", email: "sadara@gmail.com", password:"sadara")
+User.create!(name: "iseki president", email: "iseki@gmail.com", password:"iseki president")
+User.create!(name: "小林Executive Adviser", email: "kobayashi@gmail.com", password:"kobayashi")
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -23,6 +32,7 @@ food_categories = [
 food_categories.each do |food_category|
   FoodCategory.find_or_create_by(food_category)
 end
+
 
 #foods table
 foods = [
@@ -60,6 +70,20 @@ foods.each do |foods|
   Food.find_or_create_by(foods)
 end
 
+
+#food_stocks table
+users = User.all
+users.each do |user|
+  
+  FoodStock.create!(use_up_on: Date.today + rand(30),
+  price: rand(100..1000),
+  consumption: false,
+  notes: "テスト用のフードストックデータ",
+  user_id: user.id,
+  food_id: Food.find(rand(1..29)).id
+)
+end
+
 #food_stocks table
 # food_stocks = [
 #               {id: 1, food_id: 1, use_up_on: Date.today + rand(30), price: 1000, consumption: false, user_id: 1},
@@ -71,21 +95,6 @@ end
 # food_stocks.each do |food_stocks|
 #   FoodStock.find_or_create_by(food_stocks)
 # end
-users = User.all
-foods = Food.all
-
-foods.each do |food|
-  users.each do |user|
-    rand(5).times do
-      FoodStock.create!(use_up_on: Date.today + rand(30),
-                        price: rand(100..1000),
-                        notes: "テスト用のフードストックデータ",
-                        user_id: user.id,
-                        food_id: food.id)
-    end
-  end
-end
-
 
 
 
@@ -105,8 +114,3 @@ end
 # users.each do |users|
 #   User.find_or_create_by(users)
 # end
-User.create!(name: "坂本 薫哉", email: "sakamoto@gmail.com", password:"sakamoto", admin: true)
-User.create!(name: "髙橋兄やん", email: "takahashi@gmail.com", password:"takahashi")
-User.create!(name: "おじょう", email: "adachi@gmail.com", password:"adachi")
-User.create!(name: "ハコ様", email: "hako@gmail.com", password:"hakohako")
-User.create!(name: "むつみたん", email: "sadara@gmail.com", password:"sadara")
