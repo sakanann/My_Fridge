@@ -2,13 +2,13 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :メールアドレスを入力してください %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: 'email', id: 'email-form' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :パスワードを入力してください %><br />
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password', id: 'password-form' %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -18,9 +18,12 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="login-actions">
     <%= f.submit t('.sign_in') %>
   </div>
 <% end %>
 
+<br>
+<div class="forgot">
 <%= render "devise/shared/links" %>
+</div>
