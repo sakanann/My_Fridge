@@ -80,3 +80,7 @@ gem 'google-api-client', '~> 0.11'
 
 gem 'ransack'
 #検索絹・並び替えソート機能
+
+#Bootstrapの導入
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
