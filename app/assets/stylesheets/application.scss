@@ -35,7 +35,8 @@ nav ul {
 }
 
 nav ul li {
-  font-size:16px;
+  font-size:20px;
+  font-weight: bold;
   margin: 0 10px;
 }
 
@@ -46,7 +47,7 @@ nav ul li a {
 
 nav ul li a:hover{
   color: #fafafa;
-  background-color: #17a2b8;
+  // background-color: #17a2b8;
 }
 
 .nav-white li a:hover{
@@ -55,7 +56,7 @@ nav ul li a:hover{
 }
 
 .nav-item{
-  vertical-align: middle
+  vertical-align: middle;
 }
 .nav-link{
   padding: 43px;

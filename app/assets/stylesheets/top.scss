@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 /*top--------------------------*/
+body {
+  background-image: image-url('top_food_los.png');
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 30% 40%;
+  padding-bottom: 160px;
+}
 
 .top-content {
   text-align: center;
@@ -10,7 +17,8 @@
 .top-content p {
   font-size: 1rem;
   font-weight: bold;
-  
+  font-style: oblique;
+  color: #ff60a2;
   margin: 0;
 }
 
