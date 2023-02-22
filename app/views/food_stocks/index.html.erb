@@ -1,19 +1,20 @@
+
 <!--検索ransack--->
-<%= search_form_for @q do |f| %>
-
+<h4><strong>検索フォーム</strong></h4>
+<%= search_form_for @q, html: { class: "form-inline" } do |f| %>
 <div class="form-group" style="width: 18rem;">
-<%= f.label :food_name_cont, '食品名' %>
-<%= f.search_field :food_name_cont, placeholder: '食品名', id: 'food_name-form', class: "form-control mr-3"  %>
+  <%= f.label :food_name_cont, '食品名を入力してください' %>
+  <%= f.search_field :food_name_cont, placeholder: '食品名', id: 'food_name-form', class: "form-control mr-3"  %>
 </div>
 
 <div class="form-group" style="width: 18rem;">
-<%= f.label :use_up_on_gteq, '賞味期限がこれ以降' %>
-<%= f.date_field :use_up_on_gteq, class: "form-control mr-3" %>
+  <%= f.label :use_up_on_gteq, '賞味期限が選択日付以降' %>
+  <%= f.date_field :use_up_on_gteq, class: "form-control mr-3" %>
 </div>
 
 <div class="form-group" style="width: 18rem;">
-<%= f.label :price_lteq, '入力価格以下で検索' %>
-<%= f.number_field :price_lteq, placeholder: '価格', id: 'price-form', class: "form-control mr-3"  %>
+  <%= f.label :price_lteq, '入力価格以下で検索' %>
+  <%= f.number_field :price_lteq, placeholder: '価格', id: 'price-form', class: "form-control mr-3"  %>
 </div>
 
 <div class="form-group" style="width: 6rem;">
@@ -23,12 +24,14 @@
 
 <br>
 <div class="search-actions">
-  <%= f.submit '検索' %>
+  <%= f.submit '検索', class: 'btn btn-primary' %>
 </div>
 <% end %>
 
+<hr>
 
 <!--------食品の登録----------->
+<h4><strong>食品の登録</strong></h4>
 <br>
 <%= form_with(method: :get, url: food_stocks_path) do |form| %>
 
