@@ -20,13 +20,13 @@ header {
   justify-content: space-between;
   align-items: center;
   /* padding: 1px; */
-  background-color: #fff;
-  color: black;
+  background-color: #17a2b8;
+  color: rgb(199, 32, 32);
 }
 
 .logo {
   max-width: 100%;
-  padding: 10px;
+  padding: 1px;
 }
 
 nav ul {
@@ -35,7 +35,7 @@ nav ul {
 }
 
 nav ul li {
-  font-size:12px;
+  font-size:16px;
   margin: 0 10px;
 }
 
@@ -46,6 +46,12 @@ nav ul li a {
 
 nav ul li a:hover{
   color: #fafafa;
+  background-color: #17a2b8;
+}
+
+.nav-white li a:hover{
+  color: #fafafa;
+  background-color: #17a2b8;
 }
 
 footer {
