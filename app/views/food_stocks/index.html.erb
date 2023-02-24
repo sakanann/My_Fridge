@@ -2,6 +2,7 @@
 <!--検索ransack--->
 <h4><strong>検索フォーム</strong></h4>
 <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
+
 <div class="form-group" style="width: 18rem;">
   <%= f.label :food_name_cont, '食品名を入力してください' %>
   <%= f.search_field :food_name_cont, placeholder: '食品名', id: 'food_name-form', class: "form-control mr-3"  %>
@@ -103,7 +104,7 @@
       <th scope="col"><%= sort_link(@q, :use_up_on, "賞味期限") %></th>
       <th scope="col"><%= sort_link(@q, :price, "価格") %></th>
       <th scope="col"><%= sort_link(@q, :consumption, "消費の有無") %></th>
-      <th scope="col">備考欄</th>
+      <th scope="col"><%= sort_link(@q, :notes, "備考欄") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -117,9 +118,9 @@
         <td><%= "#{food_stock.price}円 "%></td>
         <td><%= food_stock.consumption ? "消費済み" : "未消費" %></td>
         <td><%= food_stock.notes %></td>
-        <td><%= link_to '食品詳細', food_stock %></td>
-        <td><%= link_to '食品編集', edit_food_stock_path(food_stock) %></td>
-        <td><%= link_to '削除', food_stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '食品詳細', food_stock, class: "btn btn-outline-primary" %></td>
+        <td><%= link_to '食品編集', edit_food_stock_path(food_stock), class: "btn btn-outline-dark" %></td>
+        <td><%= link_to '削除', food_stock, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
       </tr>
     <% end %>
   </tbody>
