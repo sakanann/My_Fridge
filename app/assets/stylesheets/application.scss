@@ -13,18 +13,32 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+html{
+  min-height: 100vh;
+}
+body {
+  // margin-bottom: 100px;
+  margin: 0;
+  padding: 0;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* padding: 1px; */
-  background-color: #fff;
-  color: black;
+  background-color: #17a2b8;
+  color: rgb(199, 32, 32);
+}
+main{
+  padding-bottom: 30px;
+  margin-bottom: 240px;
 }
 
 .logo {
   max-width: 100%;
-  padding: 10px;
+  padding: 1px;
 }
 
 nav ul {
@@ -33,7 +47,8 @@ nav ul {
 }
 
 nav ul li {
-  font-size:12px;
+  font-size:20px;
+  font-weight: bold;
   margin: 0 10px;
 }
 
@@ -44,16 +59,44 @@ nav ul li a {
 
 nav ul li a:hover{
   color: #fafafa;
+  // background-color: #17a2b8;
+}
+.nav-white{
+  color: black;
+}
+
+.nav-white li a:hover{
+  color: #fafafa;
+  background-color: #17a2b8;
+}
+
+.nav-item{
+  vertical-align: middle;
+}
+.nav-link{
+  padding: 43px;
+}
+.nav-flash{
+  padding: 43px;
+  color: black;
+  font-size: 14px;
+}
+.nav-flash p{
+  font-size: 18px;
+}
+
+.notice{
+  font-size: 18px;
 }
 
 footer {
   background-color: #ffffff;
   color: black;
-  padding: 15px;
+  // padding: 15px;
+  height: 50px;
   text-align: center;
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   border-top: 1px solid #ccc;
 }
@@ -68,3 +111,4 @@ footer p {
   color: #898989;
   padding-bottom: 20px;
 }
+

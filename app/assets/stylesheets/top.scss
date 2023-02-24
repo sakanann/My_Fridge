@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 /*top--------------------------*/
+#top {
+  background-image: image-url('top_food_los.png');
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 40% 60%;
+  padding-bottom: 300px;
+}
 
 .top-content {
   text-align: center;
@@ -10,7 +17,8 @@
 .top-content p {
   font-size: 1rem;
   font-weight: bold;
-  
+  font-family: fantasy;
+  color: #d1750c;
   margin: 0;
 }
 
@@ -20,14 +28,7 @@
   color: white;
 }
 
-#top {
-  // background-image: url(/app/assets/images/ofuro_top.jpeg);
-  min-width: 100vh;
-}
 
-#top .page-title {
-  text-transform: none;
-}
 
 .big-bg {
   background-position: center top;
