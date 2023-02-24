@@ -1,29 +1,32 @@
-<h2><%= t('.sign_in') %></h2>
+<div class= "d-flex justify-content-center">
+  <div class="forgot-password">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <h2><%= t('.sign_in') %></h2>
+        <%= f.label :メールアドレスを入力してください %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: '例 ）test@example.com', id: 'email-form', class: "form-control mr-3" %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレスを入力してください %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: 'email', id: 'email-form' %>
+      <div class="field">
+        <%= f.label :パスワードを入力してください %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password(6字以上)', id: 'password-form', class: "form-control mr-3" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="login-actions">
+        <%= f.submit  "ログイン", class: 'btn btn-success' %>
+      </div>
+
+
+      <div class="forgot">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :パスワードを入力してください %><br />
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password', id: 'password-form' %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="login-actions">
-    <%= f.submit t('.sign_in') %>
-  </div>
-<% end %>
-
-<br>
-<div class="forgot">
-<%= render "devise/shared/links" %>
 </div>

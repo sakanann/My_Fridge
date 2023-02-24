@@ -1,4 +1,4 @@
-
+<div class= container >
 <!--検索ransack--->
 <h4><strong>検索フォーム</strong></h4>
 <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
@@ -30,59 +30,67 @@
 
 <hr>
 
-<!--------食品の登録----------->
-<h4><strong>食品の登録</strong></h4>
-<br>
-<%= form_with(method: :get, url: food_stocks_path) do |form| %>
-
-  <div class="form-group" style="width: 18rem;">
-    <%= form.label :食品カテゴリ %>
-    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name, { include_blank: "カテゴリを選択してください"}, class: "form-control mr-3" %>
+<!-- 食品の登録 -->
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title"><strong>食品の登録</strong></h4>
   </div>
-
-  <div class="actions">
-    <%= form.submit '絞り込む'%>
-  </div>
-<% end %>
-
-
-<%= form_with(model: @food_stock) do |form| %>
-  <% if @food_stock.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
-
-      <ul>
-        <% @food_stock.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="card-body">
+    <!-- フィルターフォーム -->
+    <div class="filter-form mb-4">
+      <%= form_with(method: :get, url: food_stocks_path, class: "form-inline") do |form| %>
+        <%= form.label :food_category_id, "食品のカテゴリ:" %>
+        <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name, { include_blank: "選択してください" }, { class: "form-control mr-3" } %>
+        <%= form.submit '絞り込む', class: 'btn btn-primary' %>
+      <% end %>
     </div>
-  <% end %>
 
+    <!-- 食品登録フォーム -->
+    <%= form_with(model: @food_stock, class: "mb-4") do |form| %>
+      <% if @food_stock.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
 
-  <%= form.collection_select :food_id, @food_select_lists, :id, :name, { include_blank: "食品を選択してください"} %>
-  <div class="form-group" style="width: 18rem;">
-    <%= form.label :賞味期限 %>
-    <%= form.date_field :use_up_on, class: "form-control mr-3" %>
-  </div>
+          <ul>
+            <% @food_stock.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="form-group" style="width: 18rem;">
-    <%= form.label :価格 %>
-    <%= form.number_field :price, placeholder: '価格', id: 'price-form', class: "form-control mr-3" %>
-  </div>
+      <div class="form-group">
+        <%= form.label :food_id, "食品名:" %>
+        <%= form.collection_select :food_id, @food_select_lists, :id, :name, { include_blank: "絞り込み後 選択してください" }, { class: "form-control" } %>
+      </div>
 
-  <div class="form-group" style="width: 18rem;">
-    <%= form.label :消費の有無 %>
-    <%= form.check_box :consumption %>
-  </div>
+      <div class="form-group">
+        <%= form.label :use_up_on, "賞味期限:" %>
+        <%= form.date_field :use_up_on, class: "form-control" %>
+      </div>
 
-  <div class="form-group" style="width: 18rem;">
-    <%= form.label :備考欄 %>
-    <%= form.text_field :notes, placeholder: 'メモがあれば入力', id: 'notes-form', class: "form-control mr-3" %>
-  </div>
+      <div class="form-group">
+        <%= form.label :price, "価格:" %>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">¥</div>
+          </div>
+          <%= form.number_field :price, placeholder: '価格を入力してください', id: 'price-form', class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="submit-actions">
-    <%= form.submit %>
+      <div class="form-group form-check">
+        <%= form.check_box :consumption, class: "form-check-input" %>
+        <%= form.label :consumption, "消費の有無:", class: "form-check-label" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :notes, "備考欄:" %>
+        <%= form.text_field :notes, placeholder: 'メモがあれば入力', id: 'notes-form', class: "form-control" %>
+      </div>
+
+  <div class="form-group text-right">
+    <%= form.submit "登録", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
@@ -107,7 +115,7 @@
         <td><%= food_stock.food.name %></td>
         <td><%= food_stock.use_up_on %></td>
         <td><%= "#{food_stock.price}円 "%></td>
-        <td><%= food_stock.consumption %></td>
+        <td><%= food_stock.consumption ? "消費済み" : "未消費" %></td>
         <td><%= food_stock.notes %></td>
         <td><%= link_to '食品詳細', food_stock %></td>
         <td><%= link_to '食品編集', edit_food_stock_path(food_stock) %></td>
@@ -119,10 +127,9 @@
 
 
 
-
 <br>
 <!--以下追記 カレンダー実装の為-->
-<div class="col-md-8">
+<div class="col-md-12">
   <%= month_calendar events: @food_stocks do |date, food_stocks| %>
     <%= date.day %>
 
@@ -138,4 +145,5 @@
       <% end %>
     <% end %>
   <% end %>
+</div>
 </div>

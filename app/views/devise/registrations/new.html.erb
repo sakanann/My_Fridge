@@ -1,33 +1,37 @@
-<h2><%= t('.sign_up') %></h2>
+<div class= "d-flex justify-content-center">
+  <div class="log-in">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :名前を入力してください %><br />
-    <%= f.email_field :name, autofocus: true, autocomplete: "name",  placeholder: 'user name', id: 'name-form' %>
-  </div>
+      <div class="field">
+        <h2><%= t('.sign_up') %></h2>
+          <%= f.label :名前を入力してください %><br />
+          <%= f.email_field :name, autofocus: true, autocomplete: "name",  placeholder: '例 ）蓼丸 綾', id: 'name-form', class: "form-control mr-3"  %>
+      </div>
 
-    <%= f.label :メールアドレスを入力してください %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: 'email', id: 'email-form' %>
-  </div>
+      <div class="field">
+        <%= f.label :メールアドレスを入力してください %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: '例 ）test@example.com', id: 'email-form', class: "form-control mr-3"  %>
+      </div>
 
-  <div class="field">
-    <%= f.label :パスワードを入力してください %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'password(6字以上)', id: 'password-form' %>
-  </div>
+      <div class="field">
+        <%= f.label :パスワードを入力してください %>
+        <% if @minimum_password_length %>
+        <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'password(6字以上)', id: 'password-form', class: "form-control mr-3"  %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, placeholder: 'password(確認用)', id: 'password-form' %>
-  </div>
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, placeholder: 'password(確認用)', id: 'password-form', class: "form-control mr-3"  %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
+      <div class="actions">
+        <%= f.submit t('.sign_up'), class: 'btn btn-success' %>
+      </div>
+    <% end %>
 <%= render "devise/shared/links" %>
+  </div>
+</div>

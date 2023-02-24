@@ -15,55 +15,61 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-info mt-3 mb-3">
+      <nav class="navbar navbar-expand-sm navbar-light bg-info mt-3 mb-3">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav nav-white">
-            <li class="logo">
-            <%= link_to(root_path) do %>
-            <%= image_tag 'logo.png', size: '100x100' %>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav nav-white">
+              <li class="logo">
+              <%= link_to(root_path) do %>
+              <%= image_tag 'logo.png', size: '100x100' %>
+              <% end %>
+              </li>
+            <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "冷蔵庫 食品一覧", food_stocks_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", method: :delete %></li>
+
+              <% if current_user.admin? %>
+              <li class="nav-item"><%= link_to "管理者ページへ", rails_admin_path, class: "nav-link" %></li>
+              <% end %>
+
+              <li class="nav-item"><%= link_to "Youtubeレシピ検索", youtube_index_path, class: "nav-link" %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "nav-link", method: :post %></li>
+              <li class="nav-item"><%= link_to '管理者ゲストログイン（閲覧用）', users_admin_guest_sign_in_path, class: "nav-link", method: :post %></li>
             <% end %>
-            </li>
-          <% if user_signed_in? %>
-            <li class="nav-item"><%= link_to "冷蔵庫 食品一覧", food_stocks_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", method: :delete %></li>
 
-            <% if current_user.admin? %>
-            <li class="nav-item"><%= link_to "管理者ページへ", rails_admin_path, class: "nav-link" %></li>
-            <% end %>
-
-            <li class="nav-item"><%= link_to "Youtubeレシピ検索", youtube_index_path, class: "nav-link" %></li>
+            <% if current_user.present? %>
+            <li class="nav-item nav-flash"><p><%= current_user.name %>さんでログインしています</p></li>
           <% else %>
-            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "nav-link", method: :post %></li>
-            <li class="nav-item"><%= link_to '管理者ゲストログイン（閲覧用）', users_admin_guest_sign_in_path, class: "nav-link", method: :post %></li>
+            <li class="nav-item nav-flash"><p>こちらのWEBアプリへお越しいただき、有難うございます!</p></li>
           <% end %>
-
-          <% if current_user.present? %>
-            <li><p><%= current_user.name %>さんでログインしています</p></li>
-          <% else %>
-            <p>こちらのWEBアプリへお越しいただき、有難うございます!</p>
-          <% end %>
-
-          <% if notice %>
-          <p class="alert alert-notice"><%= notice %></p>
-          <% end %>
+          </ul>
+        </div>
+      </nav>
 
 
     </header>
+    <div class= "notice d-flex justify-content-center">
+    <% if notice %>
+    <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    </div>
+  <main>
     <%= yield %>
+  </main>
     <footer>
-  <div class="container">
-    <a href="https://twitter.com/mac_sakabook" class="twitter-follow-button" data-show-count="false">Follow @mac_sakabook</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <a href="https://github.com/sakanann">
-        <%= image_tag 'githublogo.png', size: '20x20' %>
-    </a>
-    <p>&copy; 2023 ウチの冷蔵庫 Created by Takuya Sakamoto</p>
-  </div>
-</footer>
+      <div class="container">
+        <a href="https://twitter.com/mac_sakabook" class="twitter-follow-button" data-show-count="false">Follow @mac_sakabook</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://github.com/sakanann">
+            <%= image_tag 'githublogo.png', size: '20x20' %>
+        </a>
+        <p>&copy; 2023 ウチの冷蔵庫 Created by Takuya Sakamoto</p>
+      </div>
+    </footer>
   </body>
 </html>

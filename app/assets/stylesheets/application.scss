@@ -14,6 +14,14 @@
  *= require_self
  */
 @import "bootstrap";
+html{
+  min-height: 100vh;
+}
+body {
+  // margin-bottom: 100px;
+  margin: 0;
+  padding: 0;
+}
 
 header {
   display: flex;
@@ -22,6 +30,10 @@ header {
   /* padding: 1px; */
   background-color: #17a2b8;
   color: rgb(199, 32, 32);
+}
+main{
+  padding-bottom: 30px;
+  margin-bottom: 240px;
 }
 
 .logo {
@@ -49,6 +61,9 @@ nav ul li a:hover{
   color: #fafafa;
   // background-color: #17a2b8;
 }
+.nav-white{
+  color: black;
+}
 
 .nav-white li a:hover{
   color: #fafafa;
@@ -61,15 +76,27 @@ nav ul li a:hover{
 .nav-link{
   padding: 43px;
 }
+.nav-flash{
+  padding: 43px;
+  color: black;
+  font-size: 14px;
+}
+.nav-flash p{
+  font-size: 18px;
+}
+
+.notice{
+  font-size: 18px;
+}
 
 footer {
   background-color: #ffffff;
   color: black;
-  padding: 15px;
+  // padding: 15px;
+  height: 50px;
   text-align: center;
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   border-top: 1px solid #ccc;
 }
