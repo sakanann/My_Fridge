@@ -1,0 +1,61 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+/*top--------------------------*/
+#top {
+  background-image: image-url('top_food_los.png');
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 40% 60%;
+  padding-bottom: 300px;
+}
+
+.top-content {
+  text-align: center;
+  }
+
+.top-content p {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: fantasy;
+  color: #d1750c;
+  margin: 0;
+}
+
+.how-to p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+
+
+.big-bg {
+  background-position: center top;
+  background-size: cover;
+}
+
+.bg-rgba{
+  background-color: rgba rgba(58, 56, 192, 0.26);
+}
+
+.comment_image {
+  width: 200px;
+}
+
+.main_image {
+  width: 400px;
+}
+.img-shadow {
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.1) inset;
+}
+.img-shadow img {
+  position: relative;
+  width: 50px;
+  z-index: -1;
+}
+
+#map {
+    height: 300px;
+    width: 400px;
+  }

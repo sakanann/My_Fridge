@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  root 'top#index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :food_stocks
-  root 'food_stocks#index'
   resources :youtube
   # get "search" => "youtube#index"
 

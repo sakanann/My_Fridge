@@ -1,0 +1,114 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+html{
+  min-height: 100vh;
+}
+body {
+  // margin-bottom: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1px; */
+  background-color: #17a2b8;
+  color: rgb(199, 32, 32);
+}
+main{
+  padding-bottom: 30px;
+  margin-bottom: 240px;
+}
+
+.logo {
+  max-width: 100%;
+  padding: 1px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  font-size:20px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+nav ul li a:hover{
+  color: #fafafa;
+  // background-color: #17a2b8;
+}
+.nav-white{
+  color: black;
+}
+
+.nav-white li a:hover{
+  color: #fafafa;
+  background-color: #17a2b8;
+}
+
+.nav-item{
+  vertical-align: middle;
+}
+.nav-link{
+  padding: 43px;
+}
+.nav-flash{
+  padding: 43px;
+  color: black;
+  font-size: 14px;
+}
+.nav-flash p{
+  font-size: 18px;
+}
+
+.notice{
+  font-size: 18px;
+}
+
+footer {
+  background-color: #ffffff;
+  color: black;
+  // padding: 15px;
+  height: 50px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
+footer p {
+  margin: 0;
+  font-size:12px;
+  /* font-family: 'Caveat', cursive; */
+}
+
+#error_explanation {
+  color: #898989;
+  padding-bottom: 20px;
+}
+

@@ -8,7 +8,7 @@ class YoutubeController < ApplicationController
     opt = {
       q: keyword,
       type: "video",
-      max_results: 1,
+      max_results: 6,
       order: :date,
       page_token: next_page_token,
       published_after: after.iso8601,
