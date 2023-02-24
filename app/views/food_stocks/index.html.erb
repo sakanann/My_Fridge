@@ -35,9 +35,9 @@
 <br>
 <%= form_with(method: :get, url: food_stocks_path) do |form| %>
 
-  <div class="field">
+  <div class="form-group" style="width: 18rem;">
     <%= form.label :食品カテゴリ %>
-    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name, { include_blank: "カテゴリを選択してください"} %>
+    <%= form.collection_select :food_category_id, FoodCategory.all, :id, :name, { include_blank: "カテゴリを選択してください"}, class: "form-control mr-3" %>
   </div>
 
   <div class="actions">
@@ -59,26 +59,26 @@
     </div>
   <% end %>
 
+
   <%= form.collection_select :food_id, @food_select_lists, :id, :name, { include_blank: "食品を選択してください"} %>
-
-  <div class="field">
+  <div class="form-group" style="width: 18rem;">
     <%= form.label :賞味期限 %>
-    <%= form.date_field :use_up_on %>
+    <%= form.date_field :use_up_on, class: "form-control mr-3" %>
   </div>
 
-  <div class="field">
+  <div class="form-group" style="width: 18rem;">
     <%= form.label :価格 %>
-    <%= form.number_field :price, placeholder: '価格', id: 'price-form' %>
+    <%= form.number_field :price, placeholder: '価格', id: 'price-form', class: "form-control mr-3" %>
   </div>
 
-  <div class="field">
+  <div class="form-group" style="width: 18rem;">
     <%= form.label :消費の有無 %>
     <%= form.check_box :consumption %>
   </div>
 
-  <div class="field">
+  <div class="form-group" style="width: 18rem;">
     <%= form.label :備考欄 %>
-    <%= form.text_field :notes, placeholder: 'メモがあれば入力', id: 'notes-form' %>
+    <%= form.text_field :notes, placeholder: 'メモがあれば入力', id: 'notes-form', class: "form-control mr-3" %>
   </div>
 
   <div class="submit-actions">
