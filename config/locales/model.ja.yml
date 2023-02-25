@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      blog: ブログ
+      user: ユーザー
+      food_category: 食品カテゴリ
+      food_stock: 食品一覧
+      food: 食品
+    attributes:
+      blog:
+        title: タイトル
+        content: 内容
+      user:
