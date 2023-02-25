@@ -7,7 +7,7 @@
       <div class="field">
         <h2><%= t('.sign_up') %></h2>
           <%= f.label :名前を入力してください %><br />
-          <%= f.email_field :name, autofocus: true, autocomplete: "name",  placeholder: '例 ）蓼丸 綾', id: 'name-form', class: "form-control mr-3"  %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name",  placeholder: '例 ）蓼丸 綾', id: 'name-form', class: "form-control mr-3"  %>
       </div>
 
       <div class="field">
@@ -24,7 +24,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :パスワード確認 %><br />
         <%= f.password_field :password_confirmation, placeholder: 'password(確認用)', id: 'password-form', class: "form-control mr-3"  %>
       </div>
 

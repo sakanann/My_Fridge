@@ -74,15 +74,29 @@ end
 #food_stocks table
 users = User.all
 users.each do |user|
-  
+
   FoodStock.create!(use_up_on: Date.today + rand(30),
-  price: rand(100..1000),
-  consumption: false,
-  notes: "テスト用のフードストックデータ",
-  user_id: user.id,
-  food_id: Food.find(rand(1..29)).id
-)
+                    price: rand(100..1000),
+                    consumption: false,
+                    notes: "テスト用のフードストックデータ",
+                    user_id: user.id,
+                    food_id: Food.find(rand(1..29)).id
+  )
 end
+
+# users = User.all.sample(5) # ランダムに5人のユーザーを取得する
+
+# users.each do |user|
+#   FoodStock.create!(
+#     use_up_on: Date.today + rand(30),
+#     price: rand(100..1000),
+#     consumption: false,
+#     notes: "テスト用のフードストックデータ",
+#     user_id: user.id,
+#     food_id: Food.find(rand(1..29)).id
+#   )
+# end
+
 
 #food_stocks table
 # food_stocks = [
