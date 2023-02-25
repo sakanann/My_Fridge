@@ -60,7 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'rexml'
-#Ruby3系でdeviseを使用するにはrexmlもいれる
+#Ruby3系でdeviseを使用するにはrexmlもいれる　xmlファイルを読み込むために必要
 gem 'devise-i18n'
 #国際化の為 導入
 
