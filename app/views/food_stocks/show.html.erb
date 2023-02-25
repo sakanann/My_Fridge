@@ -16,12 +16,12 @@
 
 <p>
   <strong>価格:</strong>
-  <%= @food_stock.price %>
+  <%= "#{@food_stock.price}円 "%>
 </p>
 
 <p>
   <strong>消費の有無:</strong>
-  <%= @food_stock.consumption %>
+  <%= @food_stock.consumption ? "消費済み" : "未消費" %>
 </p>
 
 <p>
