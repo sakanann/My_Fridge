@@ -1,33 +1,22 @@
-
-<p>
-  <strong>食品カテゴリ:</strong>
-  <%= @food_stock.food.food_category.name %>
-</p>
-
-<p>
-  <strong>食品名:</strong>
-  <%= @food_stock.food.name %>
-</p>
-
-<p>
-  <strong>賞味期限:</strong>
-  <%= @food_stock.use_up_on %>
-</p>
-
-<p>
-  <strong>価格:</strong>
-  <%= "#{@food_stock.price}円 "%>
-</p>
-
-<p>
-  <strong>消費の有無:</strong>
-  <%= @food_stock.consumption ? "消費済み" : "未消費" %>
-</p>
-
-<p>
-  <strong>備考欄:</strong>
-  <%= @food_stock.notes %>
-</p>
-
-<%= link_to '食品データの編集', edit_food_stock_path(@food_stock) %> |
-<%= link_to '冷蔵庫画面に戻る', food_stocks_path %>
+<div class="container d-flex justify-content-center align-items-center" style="height: 60vh;">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">食品カテゴリ:</h5>
+      <p class="card-text"><%= @food_stock.food.food_category.name %></p>
+      <h5 class="card-title">食品名:</h5>
+      <p class="card-text"><%= @food_stock.food.name %></p>
+      <h5 class="card-title">賞味期限:</h5>
+      <p class="card-text"><%= @food_stock.use_up_on %></p>
+      <h5 class="card-title">価格:</h5>
+      <p class="card-text"><%= "#{ @food_stock.price }円" %></p>
+      <h5 class="card-title">消費の有無:</h5>
+      <p class="card-text"><%= @food_stock.consumption ? "消費済み" : "未消費" %></p>
+      <h5 class="card-title">備考欄:</h5>
+      <p class="card-text"><%= @food_stock.notes %></p>
+      <div class="d-flex justify-content-center">
+        <%= link_to '食品データの編集', edit_food_stock_path(@food_stock), class: "btn btn-outline-primary mr-2" %>
+        <%= link_to '冷蔵庫画面に戻る', food_stocks_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
