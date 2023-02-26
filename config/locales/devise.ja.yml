@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name: "名前"
+            email:
+              presence: "を入力してください"
+              length:
+                maximum: "は%{count}文字以内で入力してください"
+              format: "が正しくありません"
+            password:
+              length:
+                minimum: "は%{count}文字以上で入力してください"
+          messages:
+            blank: "を入力してください"

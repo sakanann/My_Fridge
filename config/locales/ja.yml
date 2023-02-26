@@ -1,24 +1,18 @@
 ---
 ja:
   activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        name: "名前"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
-
-  food_stocks:
-    views:
-      index:
-        use_up_on: 賞味期限
-        price: 価格
-        consumption: 消費の有無
-        notes: 備考欄
-
-
-
   date:
     abbr_day_names:
     - 日
