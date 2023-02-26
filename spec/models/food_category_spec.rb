@@ -13,7 +13,7 @@ RSpec.describe FoodCategory, type: :model do
       expect(food_category.errors[:name]).to include("を入力してください")
     end
 
-    it 'カテゴリ名が空文字列の場合、無効であることを確認する' do
+    it 'カテゴリ名が正しく設定されていない場合、無効であることを確認する' do
       food_category = FoodCategory.new(name: "")
       expect(food_category).not_to be_valid
     end
