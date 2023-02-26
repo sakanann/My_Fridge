@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
+  let(:user) { User.create(name: 'takahashi', email: 'takahashi@gmail.com', password: 'takahashi') }
   let(:food_category) { FoodCategory.create(name: 'テストカテゴリー') }
   let(:food) { Food.new(name: 'テスト食品', food_category: food_category) }
 
