@@ -71,7 +71,7 @@ foods.each do |foods|
 end
 
 
-#food_stocks table
+#food_stocks table user全員に対してレコード投入（5件以上あります！）
 users = User.all
 users.each do |user|
 
