@@ -5,7 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :food_stocks, dependent: :destroy
-  
+
+
+  #名前： 30文字まで,空欄不可　メールアドレス：255文字,空欄不可
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :email, presence: true, length: { maximum: 255 },
+             format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  before_validation { email.downcase! }
+
+  #
+  validates :password, length: { minimum: 6 }
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

@@ -2,6 +2,12 @@ class FoodStock < ApplicationRecord
   belongs_to :user
   belongs_to :food
 
+#価格のバリデーション：空欄はアカンよ（0円でもいいから入力してのメッセージエラー文つけな！）
+  validates :price, presence: true
+#メモのバリデーション：最大記述30文字ですよ！
+  validates :notes, length: { maximum: 30 }
+
+
   def start_time
     self.use_up_on #self.の後はsimple_calendarに表示させるためのカラムを指定
   end
