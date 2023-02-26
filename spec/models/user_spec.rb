@@ -55,5 +55,46 @@ RSpec.describe User, type: :model do
       user.password = "a" * 5
       expect(user).to_not be_valid
     end
+
+    it 'is valid with valid attributes' do
+      user = User.new(name: 'John', email: 'john@example.com', password: 'password')
+      expect(user).to be_valid
+    end
+
+    it 'is not valid without a name' do
+      user = User.new(name: nil, email: 'john@example.com', password: 'password')
+      expect(user).not_to be_valid
+    end
+
+    it 'is not valid with a name that is too long' do
+      user = User.new(name: 'a' * 31, email: 'john@example.com', password: 'password')
+      expect(user).not_to be_valid
+    end
+
+    it 'is not valid without an email' do
+      user = User.new(name: 'John', email: nil, password: 'password')
+      expect(user).not_to be_valid
+    end
+
+    it 'is not valid with an invalid email format' do
+      user = User.new(name: 'John', email: 'invalid_email_format', password: 'password')
+      expect(user).not_to be_valid
+    end
+
+    it 'is not valid with a duplicate email address' do
+      User.create(name: 'John', email: 'john@example.com', password: 'password')
+      user = User.new(name: 'John', email: 'john@example.com', password: 'password')
+      expect(user).not_to be_valid
+    end
+
+    it 'is not valid with a password that is too short' do
+      user = User.new(name: 'John', email: 'john@example.com', password: 'passw')
+      expect(user).not_to be_valid
+    end
+
+    it 'is valid with a password that is long enough' do
+      user = User.new(name: 'John', email: 'john@example.com', password: 'password')
+      expect(user).to be_valid
+    end
   end
 end
