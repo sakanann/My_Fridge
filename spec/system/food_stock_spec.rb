@@ -35,7 +35,6 @@ end
         log_in
         click_link '冷蔵庫 食品一覧'
         fill_in 'food_stock[use_up_on]', with: '02-27-002023'
-        sleep(7)
         expect(page).to have_content '冷蔵庫 食品一覧'
       end
     end
