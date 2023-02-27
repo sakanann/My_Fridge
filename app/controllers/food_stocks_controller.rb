@@ -34,7 +34,7 @@ class FoodStocksController < ApplicationController
       flash[:notice] = "食材を登録しました！"
       redirect_to food_stocks_path
     else
-      flash[:notice] = "食材を登録してください！"
+      # flash[:notice] = "食材を登録してください！"
       redirect_to food_stocks_path
     end
   end
