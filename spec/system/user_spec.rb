@@ -30,6 +30,18 @@ RSpec.describe 'ユーザー管理機能' , type: :system do
         expect(page).not_to have_content 'ログインしています'
       end
     end
+
+
+    context '間違ったパスワードが入力された場合' do
+      it 'ログインできないこと' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'tokyo@example.com'
+        fill_in 'user[password]', with: 'pass'
+        click_on 'アカウント登録'
+        #binding.pry
+        expect(page).not_to have_content 'ログインしています'
+      end
+    end
   end
 end
 
