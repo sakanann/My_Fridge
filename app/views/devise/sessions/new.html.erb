@@ -1,6 +1,20 @@
-<div class= "d-flex justify-content-center">
+<div class="d-flex justify-content-center">
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+  <!-------宮澤さんの指摘＆追加で、エラーメッセージ　アラートが出るようになりました！8-16行目 Thank you---------->
     <div class="field">
+      <div class="login-notice">
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+      </div>
+
       <h2><%= t('.sign_in') %></h2>
       <%= f.label :メールアドレスを入力してください %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email",  placeholder: '例 ）test@example.com', id: 'email-form', class: "form-control mr-3" %>
@@ -14,7 +28,7 @@
     <% if devise_mapping.rememberable? %>
       <div class="field">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :ログインを記録する %>
       </div>
     <% end %>
 

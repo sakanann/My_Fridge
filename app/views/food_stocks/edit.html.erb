@@ -1,43 +1,58 @@
-<h2>食品データの編集</h2>
+<div class="d-flex justify-content-center">
+  <div class="col-lg-6">
+    <div class="card">
+      <%= form_with(model: @food_stock) do |form| %>
+        <% if @food_stock.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
 
-<%= form_with(model: @food_stock) do |form| %>
-  <% if @food_stock.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
-
-      <ul>
-        <% @food_stock.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% @food_stock.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="card-body">
+          <h2 class="card-title">食品データの編集</h2>
+
+          <div class="form-group">
+            <%= form.label :食品カテゴリ %>
+            <%= form.collection_select(:food_category_id, FoodCategory.all, :id, :name, {prompt: "選択してください"}, {class: "form-control"}) %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :食品名 %>
+            <%= form.collection_select(:food_id, Food.all, :id, :name, {prompt: "選択してください"}, {class: "form-control"}) %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :賞味期限 %>
+            <%= form.date_field :use_up_on, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :価格 %>
+            <%= form.number_field :price, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :消費済み %>
+            <%= form.check_box :consumption %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :備考欄 %>
+            <%= form.text_field :notes, class: "form-control"  %>
+          </div>
+
+          <div class="actions d-flex justify-content-between">
+            <%= form.submit "更新", class: 'btn btn-success' %>
+            <%= link_to '冷蔵庫に戻る', food_stocks_path, class: "btn btn-outline-dark" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-
-
-  <div class="field">
-    <%= form.label :賞味期限 %>
-    <%= form.date_field :use_up_on %>
   </div>
-
-  <div class="field">
-    <%= form.label :価格 %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :消費の有無 %>
-    <%= form.check_box :consumption %>
-  </div>
-
-  <div class="field">
-    <%= form.label :備考欄 %>
-    <%= form.text_field :notes %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to '冷蔵庫に戻る', food_stocks_path %>
+</div>

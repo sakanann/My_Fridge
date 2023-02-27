@@ -53,8 +53,8 @@
           <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
 
           <ul>
-            <% @food_stock.errors.each do |error| %>
-              <li><%= error.full_message %></li>
+            <% @food_stock.errors.full_messages.each do |error| %>
+              <li><%= error  %></li>
             <% end %>
           </ul>
         </div>

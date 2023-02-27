@@ -32,6 +32,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+
+  #RSpecのインストール
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'factory_bot_rails'
+  # gem 'rexml'
 end
 
 group :development do
@@ -50,7 +55,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver', '>= 4.0.0.rc1'
+
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
@@ -60,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'rexml'
-#Ruby3系でdeviseを使用するにはrexmlもいれる
+#Ruby3系でdeviseを使用するにはrexmlもいれる　xmlファイルを読み込むために必要
 gem 'devise-i18n'
 #国際化の為 導入
 
@@ -81,6 +86,12 @@ gem 'google-api-client', '~> 0.11'
 gem 'ransack'
 #検索絹・並び替えソート機能
 
+
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 #Bootstrapの導入
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+

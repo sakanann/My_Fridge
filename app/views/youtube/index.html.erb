@@ -1,23 +1,34 @@
-<div class="d-flex justify-content-center">
-  <div class="col-md-6">
-    <h2>YouTube レシピ検索ページ</h2>
-    <% if @youtube_data.present? %>
+<!-----YOUTUBE検索結果 動画表示------>
+<hr>
+<div class="container">
+  <h1 class="text-center mb-5">YOUTUBEレシピ検索画面</h1>
+  <% if @youtube_data.present? %>
+    <div class="row justify-content-center">
       <% @youtube_data.items.each do |item| %>
-        <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allowfullscreen></iframe>
-          <h3><%= item.snippet.title %></h3>
-          <p><%= item.snippet.description %></p>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= item.id.video_id %>" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to(item.snippet.title, "https://www.youtube.com/watch?v=#{item.id.video_id}", target: "_blank") %>
+              </h4>
+              <p class="card-text"><%= item.snippet.description %></p>
+            </div>
+          </div>
         </div>
       <% end %>
-    <% else %>
-      <strong><p>食材または、レシピのキーワードを入力してください！</p></strong>
-    <% end %>
+    </div>
+  <% end %>
+</div>
 
-    <%= form_tag(youtube_index_path, method: :get) do %>
-      <div class="input-group mb-3">
-        <%= text_field_tag(:search, nil, placeholder: '例 ）ハンバーグ', class: "form-control") %>
-        <button type="submit" class="btn btn-primary"> 検索</button>
-      </div>
-    <% end %>
-  </div>
+<!----検索フォーム----->
+<div class="d-flex justify-content-center">
+  <%= form_tag(youtube_index_path, method: :get) do %>
+    <div class="input-group mb-3">
+      <%= text_field_tag(:search, nil, placeholder: '例 ）ハンバーグ', class: "form-control", style: "width: 300px;") %>
+      <button type="submit" class="btn btn-primary"> 検索</button>
+    </div>
+  <% end %>
 </div>
