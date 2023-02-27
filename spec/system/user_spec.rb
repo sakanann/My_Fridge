@@ -49,6 +49,17 @@ RSpec.describe 'ユーザー管理機能' , type: :system do
     end
   end
 
+  describe '一般ユーザログアウトのテスト' do
+    context 'ログインしてログアウトする場合' do
+      it 'ログアウトできること' do
+        visit new_user_session_path
+        log_in
+        click_on 'ログアウト'
+        expect(page).to have_content 'ログアウトしました'
+      end
+    end
+  end
+
   describe '管理者ユーザログインのテスト' do
     context '管理者権限を持ったユーザーログインした場合' do
       it '管理者画面のリンクが出て管理者画面に行く' do
