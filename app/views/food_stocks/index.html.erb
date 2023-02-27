@@ -47,14 +47,14 @@
     </div>
 
     <!-- 食品登録フォーム -->
-    <%= form_with(model: @food_stock, class: "mb-4") do |form| %>
+    <%= form_with(model: @food_stock, url: food_stocks_path, class: "mb-4") do |form| %>
       <% if @food_stock.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
 
           <ul>
             <% @food_stock.errors.full_messages.each do |error| %>
-              <li><%= error  %></li>
+              <li><%= error.full_message %></li>
             <% end %>
           </ul>
         </div>
@@ -110,7 +110,8 @@
   </thead>
 
   <tbody>
-    <% @food_stocks.each do |food_stock| %>
+    <% @result_stocks.each do |food_stock| %>
+
       <tr>
         <td><%= food_stock.food.food_category.name %></td>
         <td><%= food_stock.food.name %></td>
