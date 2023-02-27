@@ -45,7 +45,6 @@ end
         log_in
         click_link '冷蔵庫 食品一覧'
         fill_in 'food_stock[price]', with: '500'
-        sleep(3)
         expect(page).to have_content '冷蔵庫 食品一覧'
       end
     end
@@ -94,7 +93,6 @@ end
       it '食品と付随のカラム全て閲覧ができる' do
         log_in
         click_link '冷蔵庫 食品一覧'
-        click_link food_stock_path
         select '主食', from: 'food_category_id'
         # find(:css, '#food_category_id').select("主食")
         click_on '絞り込む'
@@ -104,7 +102,8 @@ end
         check 'food_stock[consumption]'
         fill_in 'food_stock[notes]', with: 'お米おいしい'
         click_on '登録'
-        expect(page).to have_content '登録しました'
+        click_on('食品詳細', match: :first)
+        expect(page).to have_content '冷蔵庫画面に戻る'
       end
     end
   end
