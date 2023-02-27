@@ -9,7 +9,8 @@ class FoodStocksController < ApplicationController
     @food_select_lists = Food.where(food_category_id: params[:food_category_id])
 
     @q = FoodStock.ransack(params[:q])
-    @food_stocks = @q.result
+    @result_stocks = @q.result
+    # binding.pry
 
  #賞味期限から数えて、残り3日の食材は赤く表記される
     @three_days_before = 3.days.from_now.to_date

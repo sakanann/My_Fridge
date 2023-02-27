@@ -53,7 +53,7 @@
           <h2><%= pluralize(@food_stock.errors.count, "error") %> prohibited this food_stock from being saved:</h2>
 
           <ul>
-            <% @food_stock.errors.each do |error| %>
+            <% @food_stock.errors.full_messages.each do |error| %>
               <li><%= error.full_message %></li>
             <% end %>
           </ul>
@@ -110,7 +110,8 @@
   </thead>
 
   <tbody>
-    <% @food_stocks.each do |food_stock| %>
+    <% @result_stocks.each do |food_stock| %>
+
       <tr>
         <td><%= food_stock.food.food_category.name %></td>
         <td><%= food_stock.food.name %></td>
