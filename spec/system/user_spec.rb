@@ -57,7 +57,6 @@ RSpec.describe 'ユーザー管理機能' , type: :system do
         fill_in 'user[password]', with: '111111'
         click_button 'ログイン'
         click_link '管理者ページへ'
-        sleep(5)
         expect(page).to have_content 'サイト管理'
       end
     end
