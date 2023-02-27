@@ -10,4 +10,3 @@ FactoryBot.define do
     notes { 'memo' }
   end
 end
-#保留、expect片方通ってないよ！food_stock.rb
