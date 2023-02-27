@@ -37,6 +37,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
   # gem 'rexml'
+
+  gem 'capistrano', '3.16.0' # capistranoのツール一式 AWSデプロイ用
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
@@ -94,4 +102,4 @@ gem 'net-pop'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
-
+gem 'unicorn' # アプリケーションサーバのunicorn
