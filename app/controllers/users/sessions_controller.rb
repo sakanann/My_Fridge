@@ -1,4 +1,10 @@
 class Users::SessionsController < Devise::SessionsController
+
+  # def new
+  #   super
+  #   binding.pry
+  # end
+
   def guest_sign_in
     user = User.guest
     sign_in user
